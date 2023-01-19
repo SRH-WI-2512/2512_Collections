@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
+import java.util.*;
 
 public class Main {
 
@@ -17,11 +15,15 @@ public class Main {
 
         //System.out.println( min(m1, m2) );
 
-        ArrayList<Mitarbeiter> mitarbeiterList = new ArrayList<>();
+        // ab jetzt nur noch das Interface (List) benutzen!
+        List<Mitarbeiter> mitarbeiterList = new LinkedList<>();
+
         mitarbeiterList.add(m1);
         mitarbeiterList.add(m2);
         mitarbeiterList.add(m3);
         System.out.println(mitarbeiterList);
+        System.out.println("Schmitt vorhanden? " +
+                mitarbeiterList.contains( new Mitarbeiter(2, "Schmidt", "Einkauf") ));
 
         mitarbeiterList.sort( new Mitarbeiter.AbteilungsComparator() );
         System.out.println(mitarbeiterList);

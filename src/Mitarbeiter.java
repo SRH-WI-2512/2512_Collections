@@ -1,4 +1,5 @@
 import java.util.Comparator;
+import java.util.Objects;
 
 public class Mitarbeiter implements Comparable<Mitarbeiter> {
     private int mnr;
@@ -82,5 +83,18 @@ public class Mitarbeiter implements Comparable<Mitarbeiter> {
     @Override
     public String toString() {
         return mnr + ":" + name + "(" + abteilung + ")";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Mitarbeiter that = (Mitarbeiter) o;
+        return mnr == that.mnr;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(mnr, name, abteilung);
     }
 }
