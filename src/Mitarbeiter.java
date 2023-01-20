@@ -93,8 +93,11 @@ public class Mitarbeiter implements Comparable<Mitarbeiter> {
         return mnr == that.mnr;
     }
 
+    // Achtung: hashCode darf(!) nur Attribute verwenden,
+    //          die auch equals benutzt!
+    //          Notfalls einen konstanten Wert zurückgeben!
     @Override
     public int hashCode() {
-        return Objects.hash(mnr, name, abteilung);
+        return 0;
     }
 }

@@ -2,6 +2,16 @@ import java.util.*;
 
 public class Main {
 
+    // Collections:
+    // 1) geordnete Menge
+    //    Elemente sind geordnet, über einen Index erreichbar
+    //    Doppelte Elemente sind möglich
+    //    z.B. List, Map, ...
+    // 2) ungeordnete Menge
+    //    Elemente sind nicht über einen Index erreichbar (Eimer)
+    //    Doppelte Elemente sind nicht möglich
+    //    z.B. Set
+
     public static <T extends Comparable<T>> T min(T a, T b) {
         if ( a.compareTo(b) > 0 ) return b;
         return a;
@@ -17,6 +27,13 @@ public class Main {
 
         // ab jetzt nur noch das Interface (List) benutzen!
         List<Mitarbeiter> mitarbeiterList = new LinkedList<>();
+
+        // nur noch List (Interface) als Datentyp benutzen
+        // dadurch ArrayList und LinkedList austauschbar!
+        //               Schnell     Langsam
+        // ArrayList      R, U         C, D
+        // LinkedList     C, D         R, U
+        // Hinweis: C(reate), R(ead), U(date), D(elete)
 
         mitarbeiterList.add(m1);
         mitarbeiterList.add(m2);
@@ -44,6 +61,25 @@ public class Main {
 
         mitarbeiterList.sort( Comparator.reverseOrder() );
         System.out.println(mitarbeiterList);
+
+        // wir geben selbst die Mitarbeiter Liste aus:
+        // Variante 1 (mit get(i) )
+        for (int i=0; i < mitarbeiterList.size(); i++) {
+            Mitarbeiter m = mitarbeiterList.get(i);
+            System.out.println(m);
+        }
+
+        // Variante 2 (mit for-each)
+        for (Mitarbeiter m : mitarbeiterList) {
+            System.out.println(m);
+        }
+
+        // Variante 3 (mit Iterator)
+        Iterator<Mitarbeiter> it = mitarbeiterList.iterator();
+        while ( it.hasNext() ) {
+            Mitarbeiter m = it.next();
+            System.out.println(m);
+        }
 
 
 //        // Dynamisches Array mit Strings
